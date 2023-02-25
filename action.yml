@@ -28,6 +28,9 @@ runs:
       shell: bash
     - run: git clone https://github.com/laradock/laradock.git ${{ inputs.laradock_dir }}
       shell: bash
-    - run: ls ${{ inputs.laradock_dir }}
+    - name: Spin up laradock images
+      working-directory: ${{ inputs.laradock_dir }}
+      run: docker-compose up -d nginx mysql php-fpm redis workspace
       shell: bash
+      
 
