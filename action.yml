@@ -30,5 +30,8 @@ runs:
       shell: bash
     - name: Spin up laradock images
       working-directory: ${{ inputs.laradock_dir }}
-      run: pwd && ls
+      run: |
+        pwd && \
+        cp .env.example .env && \
+        docker-compose up -d nginx mysql php-fpm redis workspace
       shell: bash
