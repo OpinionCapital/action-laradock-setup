@@ -22,5 +22,7 @@ runs:
     - run: goodbye.sh
       shell: bash
     - run: git clone https://github.com/laradock/laradock.git
+      shell: bash
     - run: docker-compose up -d nginx mysql php-fpm redis workspace
+      shell: bash
 
