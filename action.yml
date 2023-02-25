@@ -23,6 +23,6 @@ runs:
       shell: bash
     - run: git clone https://github.com/laradock/laradock.git
       shell: bash
-    - run: docker-compose up -d nginx mysql php-fpm redis workspace
+    - run: cd laradock && docker-compose up -d nginx mysql php-fpm redis workspace
       shell: bash
 
