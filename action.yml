@@ -5,6 +5,11 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  laradock_dir:  # directory to store laradock repo
+    description: 'Laradock destination dir'
+    required: true
+    default: 'laradock'
+    
 outputs:
   random-number:
     description: "Random number"
@@ -21,8 +26,8 @@ runs:
       shell: bash
     - run: goodbye.sh
       shell: bash
-    - run: git clone https://github.com/laradock/laradock.git
+    - run: git clone https://github.com/laradock/laradock.git ${{ inputs.laradock_dir }}
       shell: bash
-    - run: cd laradock && docker-compose up -d nginx mysql php-fpm redis workspace
+    - run: cd ${{ inputs.laradock_dir }} && docker-compose up -d nginx mysql php-fpm redis workspace
       shell: bash
 
